@@ -1,0 +1,52 @@
+# Primeiro projeto: Um QUIZ de 5 perguntas, em que a cada resposta certa somará um a pontuação do usuário. 
+
+print("Bem vindo ao Quiz do Luca! Você responderá 5 perguntas sobre programação! \n")
+
+começar = input("Você está pronto(a) para começar ? (S/N):").lower().strip()
+
+pontos = 0 #variavel que armazanará os pontos do usuário.
+
+if começar != "s":
+    print("Que pena :( ... Encerrando o QUIZ")
+    quit() #encerra o programa
+
+print("Legal, vamos começar!!!...")
+
+print("1) O que é um algoritmo? \n (A): Algoritmo é um conjunto finito de etapas que, se seguidas, realizam uma tarefa específica. \n (B): Algoritmo é uma linguagem de programação. \n (C): Algoritmo é uma receita de bolo. \n (D): Algoritmo é um dispositivo eletrônico extremamente tecnológico. \n" )
+
+r1 = input("Resposta: ").upper().strip()
+
+if r1 == "A":
+    pontos += 1
+    
+print("2) Qual dos itens abaixo, são considerados palavras reservadas?: \n (A): red. \n (B): float. \n (C): net. \n (D): ifi. \n")
+r2 = input("Resposta: \n").upper().strip()
+
+if r2 == "B":
+    pontos += 1
+    
+print("3) Qual das opções NÃO é considerada uma linguagem de programação?: \n (A): JavaScript. \n (B): C++. \n (C): Python. \n (D): HTML. \n")
+r3 = input("Resposta: \n").upper().strip()
+
+if r3 == "D":
+    pontos += 1
+    
+print("4) O que significa o operador ( != ) em programação?: \n (A): Operador de Igualdade. \n (B): Operador de Comparação. \n (C): Operador Lógico. \n (D): Operador de Associação. \n")
+r4 = input("Resposta: \n").upper().strip()
+
+if r4 == "B":
+    pontos += 1
+    
+print("5) O que é uma função em programação?: \n (A):Uma forma de documentar o código. \n (B):Um tipo de dado que armazena valores. \n (C):Uma ferramenta para estilizar uma página web. \n (D):Um conjunto de instruções agrupadas para realizar uma tarefa específica. \n")
+r5 = input("Resposta: \n").upper().strip()
+
+if r5 == "D":
+    pontos += 1
+    
+print(f"Das 5 quesões, você acertou {pontos}... \n")
+gabarito = input("Deseja ver o gabarito das questões ?(S/N): \n").upper()
+
+if gabarito == "S":
+    print("1) O que é um algoritmo? \n (A): Algoritmo é um conjunto finito de etapas que, se seguidas, realizam uma tarefa específica. \n 2) Qual dos itens abaixo, são considerados palavras reservadas?: \n (B): float. \n 3) Qual das opções NÃO é considerada uma linguagem de programação?: \n (D): HTML. \n 4) O que significa o operador ( != ) em programação?: \n (B): Operador de Comparação. \n 5) O que é uma função em programação?: \n (D):Um conjunto de instruções agrupadas para realizar uma tarefa específica.")
+else:
+    print("Quiz encerrado!")
