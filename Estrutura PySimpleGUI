@@ -1,0 +1,108 @@
+PASSO 1- Desenhar a estrutura da interface no PAINT
+
+PASSO 2- Importar a biblioteca do PySimpleGUI : import PySimpleGUI.
+
+PASSO 3-
+1) Criar as janelas estilos(layout) - (Fazer um pedido de pizza por exemplo)
+-Criar função para a exibição de uma nova janela: 
+Exemplo: 
+ def janela_login():
+      layout = [
+            [],
+            [],
+        ] 
+* Cada [] representa uma linha. Continuando...
+-Adicionar os campos de Texto, Checkbox, Input, Button... (todos com a sigla "sg" que definimos ser o "apelido" da biblioteca na hora em que a importamos:
+ def janela_login():
+      layout = [
+            sg.theme('Reddit')  #definição do tema da interface(existem vários modelos, consultar na documentação da biblioteca.
+            [sg.Text("Digite seu nome:")],
+            [sg.input()],
+            [sg.Text("Digite sua senha: "],
+            [sg.Input()],
+            [sg.Button("Entrar")
+        ] 
+-Retornar a função:
+      layout = [
+            [sg.Text("Digite seu nome:")],
+            [sg.input()],
+            [sg.Text("Digite sua senha: "],
+            [sg.Input()],
+            [sg.Button("Entrar")
+        ]
+      return sg.Window("Login", layout = 'layout')
+*Retornando uma janela chamada Login, com o layout que defini na função acima.
+
+-Criando a segunda tela (Fazer pedido):
+
+def janela_pedido(): #janela2
+      sg.theme('Reddit')
+      layout = [
+            [sg.Text("Fazer pedido")],
+            [sg.Checkbox("Pizza Peperoni"), sg.Cjeckbox("Pizza de Frango")]
+
+-Passando um ID de identificação para que haja a verificação de qual "caixa" foi escolhida:
+
+def janela_pedido():
+      sg.theme('Reddit')
+      layout = [
+            [sg.Text("Fazer pedido")],
+            [sg.Checkbox("Pizza Peperoni", key= 'pizza1'), sg.Cjeckbox("Pizza de Frango", key='pizza2')]
+        ]
+      return sg.Window('Montar Pedido', Layout = 'layout')
+
+
+PASSO 4-  Criar um loop de leitura de eventos: 
+Para criar um loop uitlizaremos um WHILE TRUE e passaremos variáveis de janela, evento e valores para a leitura dos eventos que acontecerão na tela.
+Lembrando que um evento em programação são interações do usuário, como cliques de mouse, pressionamentos de teclas, ou movimentos do cursor por ecemplo.
+Na prática: 
+
+while True:
+        window, event, values = sg.read_all_windows() # read = ler
+
++ + + + + 
+
+PASSO 5- Lógica que deve acontecer ao clicar nos botões.
+
+1) Quando a janela for fechada: 
+while True:
+        window, event, values = sg.read_all_windows() # read = ler
+        #Adicionar o fechar pagina quando o evento click acontecer para sair: 
+        if window == janela1 and event == sg.WIN_CLODSED:
+            break # parar
+
+
+2) Quando queremos ir para a prócima janela:
+while True:
+        window, event, values = sg.read_all_windows() # read = ler
+        if window == janela1 and event == sg.WIN_CLODSED:
+            break # parar
+        #Começa apartir daqui:
+        if window == janela1 and event == 'Entrar': #esse botão foi criado na linha 23.
+              janela2 = janela_pedido()
+        #Fechando a janela 1 após a 2 ser fechada:
+        janela1.hide() # Hide = esconder
+3) Quando queremos voltar para a janela anterior: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
